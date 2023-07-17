@@ -15,7 +15,7 @@
     let playersCur : number;
     let playersMax : number;
 
-    fetch("https://api.mcsrvstat.us/2/mc.hypixel.net")
+    fetch("https://api.mcsrvstat.us/2/gommehd.net")
         .then((response) => {
             if(response.ok) {
                 response.json()
@@ -36,7 +36,7 @@
 
 </script>
 
-<div class="">
+<div class="container mx-auto">
     <ServerEntry {pictureBase64} {motd} {playersCur} {playersMax} {ip} {version} />
 </div>
 

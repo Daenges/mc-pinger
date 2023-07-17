@@ -11,17 +11,26 @@
 
 </script>
 
-<div class="md:flex md:max-w-fit bg-gray-300 rounded-xl overflow-visible items-center" role="button">
-    <ServerImage {pictureBase64} />
-    <div class="m-4 grid grid-rows-2 grid-flow-col gap-3">
-        <div class="grid grid-rows-2 grid-flow-col gap-3">
-            <ServerProperty content={"name"} setHTML={false} />
-            <ServerProperty content={ip} setHTML={false} />
-            <ServerProperty content={version} setHTML={false} />
-            <ServerProperty content={`${playersCur}/${playersMax}`} setHTML={false} />
-        </div>
-        <div class="">
-            <ServerProperty content={motd} setHTML={true} />
-        </div>
-    </div>
+<div class="md:flex md:max-w-3xl bg-gray-300 rounded-xl overflow-visible items-center mx-auto">
+    <table class="m-3">
+        <tr>
+            <td class="min-w-[64px]"><ServerImage {pictureBase64} /></td>
+            
+            <td>
+                <table class="table-auto border-separate border-spacing-2 max-w-md">
+                    <tr>
+                        <td><ServerProperty content={"name"} setHTML={false} /></td>
+                        <td><ServerProperty content={version} setHTML={false} /></td>
+                    </tr>
+                    <tr>
+                        <td><ServerProperty content={ip} setHTML={false} /></td>
+                        <td><ServerProperty content={`${playersCur}/${playersMax}`} setHTML={false} /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><ServerProperty content={motd} setHTML={true} /></td>
+                    </tr>      
+                </table>
+            </td>
+        </tr>
+    </table>
 </div>
