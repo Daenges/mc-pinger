@@ -1,42 +1,14 @@
 <script lang="ts">
-    import { stringify } from "postcss";
-    import ServerEntry from "./components/ServerEntry.svelte";
-    export const name : string = "SERVER NAME";
+    import ServerList from "./components/ServerList.svelte";
+    import { IpCounter } from "./components/IpCounter";
 
-    interface IApiResponse {
-        [key: string] : any;
-    }
+    let serverList : string[] = IpCounter("5.83.168.131", 100) //["gommehd.net", "mc.hypixel.net", "minecraft-asylum.de", "cavetale.com", "brawl.com", "amongus.performium.net", "play.mineheroes.org", "Play.PocketPixels.net", "mc.roleplayhub.com", "play.skyblocknetwork.com", "omegacraft.cl", "gtm.network"];
 
-    let ip : string;
-    let pictureBase64 : string;
-    let version : string;
-    let motd : string;
-    let software : string;
-    let playersCur : number;
-    let playersMax : number;
-
-    fetch("https://api.mcsrvstat.us/2/gommehd.net")
-        .then((response) => {
-            if(response.ok) {
-                response.json()
-                    .then((result : IApiResponse) => {
-                        ip = String(result["ip"]);
-                        motd = String(result["motd"]["html"]);
-                        version = String(result["version"]);
-                        playersMax = result["players"]["max"];
-                        playersCur = result["players"]["online"];
-
-                        // May not be included
-                        pictureBase64 = result["icon"] ? String(result["icon"]) : "";
-                        software = result["software"] ? String(result["software"]) : "Unknown";
-                    });
-            }
-        }
-    );
+   //console.log(IpCounter("127.0.0.1", 50));
 
 </script>
 
-<div class="container mx-auto">
-    <ServerEntry {pictureBase64} {motd} {playersCur} {playersMax} {ip} {version} />
+<div class="container md:max-w-2xl mx-auto space-y-4">
+    <ServerList ipArr={serverList}/>    
 </div>
 
