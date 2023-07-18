@@ -2,12 +2,15 @@
     import ServerImage from "./ServerImage.svelte"
     import ServerProperty from "./ServerProperty.svelte";
 
-    export let ip : string;
+    //  1   3
+    //  2   4
+    export let servInfo1 : string;
+    export let servInfo2 : string; 
+    export let servInfo3 : string;
+    export let servInfo4 : string; 
+
     export let motd : string;
-    export let version : string;
-    export let playersCur_Max : string;
     export let pictureBase64 : string;
-    export let software : string;
 
 </script>
 
@@ -18,12 +21,12 @@
             <td>
                 <table class="border-separate border-spacing-2 w-full">
                     <tr>
-                        <td><ServerProperty content={software} setHTML={false} /></td>
-                        <td><ServerProperty content={version} setHTML={false} /></td>
+                        <td><ServerProperty content={servInfo1} setHTML={false} /></td>
+                        <td><ServerProperty content={servInfo3} setHTML={false} /></td>
                     </tr>
                     <tr>
-                        <td><ServerProperty content={ip} setHTML={false} /></td>
-                        <td><ServerProperty content={playersCur_Max} setHTML={false} /></td>
+                        <td><ServerProperty content={servInfo2} setHTML={false} /></td>
+                        <td><ServerProperty content={servInfo4} setHTML={false} /></td>
                     </tr>
                     <tr>
                         <td colspan="2"><ServerProperty content={motd} setHTML={true} /></td>

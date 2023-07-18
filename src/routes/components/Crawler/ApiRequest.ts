@@ -1,18 +1,18 @@
 import { error } from "@sveltejs/kit";
 
 export class ApiResult {
-    ip : string;
-    port : string;
-    version : string;
-    playerCur : number;
-    playerMax : number;
-    motd : string;
-    iconBase64 : string;
-    software : string;
+    public ip : string | undefined;
+    public port : string | undefined;
+    public version : string | undefined;
+    public domain : string = "";
+    public playerCur : number = 0;
+    public playerMax : number = 0;
+    public motd : string = "";
+    public iconBase64 : string = "";
+    public software : string = "";
 
-    constructor(ip: string, port : string, version : string, playerCur=0, playerMax=0, motd="", iconBase64="./pack.webp", software="") {
-        this.ip = ip; this.port=port; this.version=version; this.playerCur=playerCur; this.playerMax=playerMax; this.motd=motd; this.iconBase64=iconBase64; this.software=software;
-    }
+    // https://stackoverflow.com/a/37682352
+    public constructor(init?:Partial<ApiResult>) {Object.assign(this, init)}
 }
 
 export interface IResultConverter {
