@@ -5,10 +5,9 @@
     export let ip : string;
     export let motd : string;
     export let version : string;
-    export let playersCur : number;
-    export let playersMax : number;
-    export let pictureBase64 : string = "./pack.webp";
-    export let software : string = "Unkown Software";
+    export let playersCur_Max : string;
+    export let pictureBase64 : string;
+    export let software : string;
 
 </script>
 
@@ -24,7 +23,7 @@
                     </tr>
                     <tr>
                         <td><ServerProperty content={ip} setHTML={false} /></td>
-                        <td><ServerProperty content={`${playersCur}/${playersMax}`} setHTML={false} /></td>
+                        <td><ServerProperty content={playersCur_Max} setHTML={false} /></td>
                     </tr>
                     <tr>
                         <td colspan="2"><ServerProperty content={motd} setHTML={true} /></td>
