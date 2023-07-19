@@ -10,10 +10,15 @@
     export let serverDomain : string = "mc.hypixel.net";
     let res : ApiResult;
     let requestSuccessful : boolean = true;
+    let apis = [fetch_MCAPINET, fetch_MCAPIUS, fetch_MCSRVSTATUS, fetch_MCSTATUSIO]
+
+    function getRandomInt(max: number) : number {
+        return Math.floor(Math.random() * max);
+    }
 
     onMount(async function () {
         try {
-            res = await fetch_MCSTATUSIO(serverDomain);
+            res = await apis[getRandomInt(apis.length)]!(serverDomain);
         }
         catch(error) {
             requestSuccessful = false;

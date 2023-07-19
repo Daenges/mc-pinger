@@ -1,4 +1,3 @@
-import type * as list from "postcss/lib/list";
 import { ApiResult, fetchResult} from "./ApiRequest";
 
 interface Motd_Object{
