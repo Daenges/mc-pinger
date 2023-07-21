@@ -20,12 +20,11 @@ export async function fetch_MCAPIUS(serverIp : string) : Promise<ApiResult> {
 
                     return new ApiResult ({
                         ip:         serverIp,
-                        version:    String(json["server"]["name"]),
-                        playerCur:  json["players"]["now"] ? json["players"]["now"] : 0,
-                        playerMax:  json["players"]["max"] ? json["players"]["max"] : 0,
-                        motd:       typeof json["motd_json"] === 'string' ? json["motd_json"] : motd_str,
-                        iconBase64: String(json["favicon"]),
-                        software:   "unknown"
+                        version:    json["server"]["name"],
+                        playerCur:  json["players"]["now"] ? json["players"]["now"] : undefined,
+                        playerMax:  json["players"]["max"] ? json["players"]["max"] : undefined,
+                        motd:       json["motd_json"].text,
+                        iconBase64: json["favicon"]
                     });
                 }
                 throw `${serverIp} online: ${json["online"]}`;

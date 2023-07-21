@@ -20,12 +20,11 @@ export async function fetch_MCAPINET(serverIp : string) : Promise<ApiResult> {
 
                     return new ApiResult ({
                         ip:         serverIp,
-                        version:    String(json["version"]["name"]),
-                        playerCur:  json["players"]["online"] ? json["players"]["online"] : 0,
-                        playerMax:  json["players"]["max"] ? json["players"]["max"] : 0,
-                        motd:       typeof json["description"] === 'string' ? json["description"] : motd_str,
-                        iconBase64: String(json["favicon_base64"]),
-                        software:   "unknown"
+                        version:    json["version"]["name"],
+                        playerCur:  json["players"]["online"] ? json["players"]["online"] : undefined,
+                        playerMax:  json["players"]["max"] ? json["players"]["max"] : undefined,
+                        motd:       json["description"].text,
+                        iconBase64: json["favicon_base64"]
                     });
                 }
                 throw `${serverIp} online: ${json["online"]} error: ${json["error"]}`;

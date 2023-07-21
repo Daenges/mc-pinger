@@ -1,62 +1,17 @@
 <script lang="ts">
-    import SearchResult from "./components/SearchResult.svelte";
-
-    let startIP : string;
-    let scanAmount : string;
-
-    const startIPRegex : RegExp = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    const scanAmountRegex : RegExp = /^([0-9]|[1-9][0-9]|100)$/;
-
-    let startIPValid : boolean;
-    let scanAmountValid : boolean;
-
-    $: startIPValid = startIPRegex.test(startIP);
-    $: scanAmountValid = scanAmountRegex.test(scanAmount);
-
-    const validateInput = () : boolean => startIPValid && scanAmountValid;
-
-    let annoyingCorner : string;
-
-    $: annoyingCorner = ("placeholder:text-slate-400 pl-5 pr-2 w-full h-full " + (!startIPValid && buttonPressed ? "rounded-bl-xl" : "rounded-l-xl"));
-
-    let buttonPressed: boolean = false;
-    let startSearch : boolean = false;
+    import SearchBox from "./components/SearchBox.svelte";
 </script>
 
-<!--- Show search Bar --->
-{#if !startSearch}
-    <div class="flex h-screen mx-auto md:w-2/5 items-center">
-        <div class="flex w-full h-24 bg-gray-300 border-4 rounded-xl border-black p-4 items-end">
-            <form action="" class="w-full">
-                <table class="mx-auto w-full max-h-fit">
-                    <tr>
-                        <table class="md:h-14 text-xl rounded-xl" style="font-family: minecraft-regular;">
-                            {#if !validateInput() && buttonPressed}
-                                <tr class="text-center">
-                                    <td>
-                                        {#if !startIPValid}
-                                            <div class="text-white md:animate-slideup bg-rose-500 rounded-t-xl w-full p-2 mx-auto">Invalid IPv4!</div>
-                                        {/if}
-                                    </td>
-                                    <td>
-                                        {#if !scanAmountValid}
-                                            <div class="text-white md:animate-slideup bg-rose-500 rounded-t-xl w-full p-2 mx-auto">&le; 100!</div>
-                                        {/if}
-                                    </td>
-                                </tr>
-                            {/if}
-                            <tr class="mt-5">
-                                <td class="w-4/6 h-full"><input bind:value={startIP} placeholder="Search for servers with similar IPs..." class={annoyingCorner} type="text"></td>
-                                <td class="w-1/6 h-full"><input bind:value={scanAmount} placeholder="Amount" class="pr-5 pl-2 w-full h-full text-center placeholder:text-slate-400" type="text"></td>
-                                <td class="w-1/6 h-full"><button on:click|once={() => buttonPressed=true}  on:click={() => startSearch=validateInput()} class="text-white w-full h-full bg-black focus:bg-gray-800 border-2 border-black rounded-r-xl font-bold py-2 text-md">Search</button></td>
-                            </tr>
-                        </table>
-                    </tr>
-                </table>
-            </form>
+<table class="h-screen w-screen">
+    <tr class="h-1/5 w-full text-center text-white" style="background-image: url(./grass.webp); background-repeat: repeat-x;">
+        <img class="mx-auto m-5" src="./Server-Scanner.webp" alt="">
+    </tr>
+    <tr class="w-full h-full">
+        <div class="w-full h-1/2 mt-5">
+            <SearchBox />
         </div>
-    </div>
-{:else}
-    <!--- Start search with provided values --->
-    <SearchResult />
-{/if}
+    </tr>
+    <tr class="h-20 w-full text-center bg-yellow-950">
+        Hallo
+    </tr>
+</table>
