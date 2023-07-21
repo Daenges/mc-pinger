@@ -11,7 +11,7 @@
             <SearchBox />
         </div>
     </tr>
-    <tr class="h-20 w-full text-center bg-yellow-950">
+    <tr class="h-20 w-full text-center bg-yellow-950 text-white">
         Hallo
     </tr>
 </table>
