@@ -7,7 +7,7 @@
         <img class="mx-auto m-5" src="./Server-Scanner.webp" alt="">
     </tr>
     <tr class="w-full h-full">
-        <div class="w-full h-1/2 mt-5">
+        <div class="w-full h-1/2 mt-6">
             <SearchBox />
         </div>
     </tr>

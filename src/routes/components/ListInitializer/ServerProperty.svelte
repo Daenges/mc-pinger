@@ -9,7 +9,7 @@
     };
 </script>
 <div on:keypress={() => CopyToClipboard()} on:click={() => CopyToClipboard()} tabindex=0 role="button" 
-    class="sm:flex flex-wrap h-full items-center px-4 border-2 border-black rounded-md bg-gray-500 text-gray-200" 
+    class="sm:flex flex-wrap h-full px-4 border-2 border-black rounded-md bg-gray-500 text-gray-200 md:text-lg sm:text-sm" 
     style="font-family: minecraft-regular;">
 
     {#if setHTML}

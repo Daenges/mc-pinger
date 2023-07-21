@@ -23,6 +23,8 @@ export class ApiResult {
         this.playerCur ??= "0";
         this.playerMax ??= "0";
         this.motd ??= "No MOTD!"
+        // Prevent servers from crafting malicious MOTD HTMLs, since they are directly loaded on the site
+        this.motd.replaceAll("<script>", "").replaceAll("href", "");
         this.iconBase64 ??= "./pack.webp"
         this.software ??= "Unknown";
     }

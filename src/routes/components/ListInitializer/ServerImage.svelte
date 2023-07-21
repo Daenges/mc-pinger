@@ -2,4 +2,4 @@
     export let pictureBase64 : string = "./pack.webp";
 </script>
 
-<img src={pictureBase64} alt="ServerImage" class="md:h-16 rounded-xl mx-auto">
+<img src={pictureBase64} alt="ServerImage" class="h-full w-full md:min-w-fit rounded-xl border-black border-2">

@@ -14,12 +14,12 @@
 
 </script>
 
-<div class="md:flex bg-gray-300 rounded-xl items-center w-full mt-6">
-    <table class="m-3 w-full">
+<div class="md:flex bg-gray-300 sm:rounded-xl items-center min-w-fit w-full mb-6 border-2 border-slate-400">
+    <table class="w-full">
         <tr>
-            <td class="w-[64px]"><ServerImage {pictureBase64} /></td>
-            <td>
-                <table class="border-separate border-spacing-2 w-full">
+            <td class="w-1/6"><ServerImage {pictureBase64} /></td>
+            <td class="w-5/6">
+                <table class="w-full">
                     <tr>
                         <td><ServerProperty content={servInfo1} setHTML={false} /></td>
                         <td><ServerProperty content={servInfo3} setHTML={false} /></td>
