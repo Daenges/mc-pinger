@@ -2,7 +2,7 @@
     import SearchBox from "./components/SearchBox.svelte";
 </script>
 
-<table class="h-screen w-screen">
+<table class="h-screen w-screen max-w-full">
     <tr class="h-1/5 w-full text-center text-white" style="background-image: url(./grass.webp); background-repeat: repeat-x;">
         <img class="mx-auto m-5" src="./Server-Scanner.webp" alt="">
     </tr>

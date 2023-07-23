@@ -24,7 +24,7 @@ export async function fetch_MCAPINET(serverIp : string) : Promise<ApiResult> {
                         playerCur:  json["players"]["online"] ? json["players"]["online"] : undefined,
                         playerMax:  json["players"]["max"] ? json["players"]["max"] : undefined,
                         motd:       json["description"].text,
-                        iconBase64: json["favicon_base64"]
+                        iconBase64: json["favicon"]
                     });
                 }
                 throw `${serverIp} online: ${json["online"]} error: ${json["error"]}`;

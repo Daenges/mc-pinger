@@ -11,7 +11,7 @@ export async function fetch_MCSTATUSIO(serverIp : string) : Promise<ApiResult> {
                         version:    json["version"]["name_clean"],
                         playerCur:  json["players"]["online"] ? json["players"]["online"] : undefined,
                         playerMax:  json["players"]["max"] ? json["players"]["max"] : undefined,
-                        motd:       json["motd"]["html"],
+                        motd:       json["motd"]["clean"],
                         iconBase64: json["icon"],
                         software:   json["software"],
                         domain:     json["host"]

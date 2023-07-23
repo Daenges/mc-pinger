@@ -21,15 +21,15 @@
             <td class="w-5/6">
                 <table class="w-full">
                     <tr>
-                        <td><ServerProperty content={servInfo1} setHTML={false} /></td>
-                        <td><ServerProperty content={servInfo3} setHTML={false} /></td>
+                        <td><ServerProperty content={servInfo1}/></td>
+                        <td><ServerProperty content={servInfo3}/></td>
                     </tr>
                     <tr>
-                        <td><ServerProperty content={servInfo2} setHTML={false} /></td>
-                        <td><ServerProperty content={servInfo4} setHTML={false} /></td>
+                        <td><ServerProperty content={servInfo2}/></td>
+                        <td><ServerProperty content={servInfo4}/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><ServerProperty content={motd} setHTML={true} /></td>
+                        <td colspan="2"><ServerProperty content={motd}/></td>
                     </tr>      
                 </table>
             </td>

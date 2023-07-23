@@ -22,10 +22,10 @@ export class ApiResult {
         this.domain ??= "";
         this.playerCur ??= "0";
         this.playerMax ??= "0";
-        this.motd ??= "No MOTD!"
-        // Prevent servers from crafting malicious MOTD HTMLs, since they are directly loaded on the site
-        this.motd.replaceAll("<script>", "").replaceAll("href", "");
-        this.iconBase64 ??= "./pack.webp"
+        this.motd ??= "No MOTD!";
+        this.iconBase64 ??= "./pack.webp";
+        // Sanitize image request
+        if(!this.iconBase64 || !this.iconBase64.startsWith('data:image/png;base64')) {this.iconBase64 = "./pack.webp"}
         this.software ??= "Unknown";
     }
 }
