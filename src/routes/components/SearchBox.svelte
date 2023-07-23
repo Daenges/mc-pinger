@@ -11,7 +11,7 @@
     let scanAmountValid : boolean;
 
     $: startIPValid = startIPRegex.test(startIP);
-    $: scanAmountValid = scanAmountRegex.test(scanAmount);
+    $: scanAmountValid = scanAmountRegex.test(scanAmount) && Number(scanAmount) > 0;
 
     const validateInput = () : boolean => startIPValid && scanAmountValid;
 

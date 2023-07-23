@@ -1,5 +1,3 @@
-import { error } from "@sveltejs/kit";
-
 export class ApiResult {
     public ip : string = "";
     public port : string;

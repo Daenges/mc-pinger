@@ -1,6 +1,6 @@
 export function IpCounter(start: string, amount: number) : string[] {
 
-    if(/^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/.test(start)) {
+    if(/^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/.test(start) && amount > 0) {
         let splitStartIp : string[] = start.split('.');
         let currentIp : number[] = [Number(splitStartIp[0]), Number(splitStartIp[1]), Number(splitStartIp[2]), Number(splitStartIp[3])];
         let returnArray : string[] = [];
