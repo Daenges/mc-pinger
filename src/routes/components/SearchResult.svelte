@@ -13,9 +13,9 @@
 
     console.log(scanAmount);
 
-    function loadMoreServers() : void {
+    function loadMoreServers(includeStart:boolean) : void {
         console.log(`Loading ${scanAmount} new IPs...`)
-        ipBatch = IpCounter(startIP, scanAmount);
+        ipBatch = IpCounter(startIP, scanAmount, includeStart);
         startIP = ipBatch.at(-1)!;
     }
 
@@ -24,10 +24,10 @@
         ipBatch
     ]
 
-    loadMoreServers();
+    loadMoreServers(true);
 </script>
 
-<div class="container md:max-w-2xl mx-auto space-y-4">
+<div class="container md:max-w-2xl mx-auto">
     {#each batchlist as servers}
         <ServerList ipArr={servers}/>
     {/each}
@@ -35,12 +35,12 @@
         <table class="w-full text-center text-lg" style="font-family: minecraft-regular;">
             <tr>
                 <td class="w-1/2 p-2"><button on:click={() => autoLoad=true}      class="bg-gray-300 w-full h-full rounded-xl border-slate-400 border-2">Enable Autoload</button></td>
-                <td class="w-1/2 p-2"><button on:click={() => loadMoreServers()}  class="bg-gray-300 w-full h-full rounded-xl border-slate-400 border-2">Load {scanAmount} new Servers</button></td>
+                <td class="w-1/2 p-2"><button on:click={() => loadMoreServers(false)}  class="bg-gray-300 w-full h-full rounded-xl border-slate-400 border-2">Load {scanAmount} new Servers</button></td>
             </tr>
         </table>
     {:else}
         <div class="flex w-full items-center">
-            <div use:viewport on:enterViewport={() => loadMoreServers()} class="mx-auto w-full h-fit rounded-lg bg-gray-300 border-slate-400 border-2">
+            <div use:viewport on:enterViewport={() => loadMoreServers(false)} class="mx-auto w-full h-fit rounded-lg bg-gray-300 border-slate-400 border-2">
                 <LoadingServerPlaceholder/>
             </div>
         </div>

@@ -4,7 +4,7 @@
     export let ipArr: string[];
 </script>
 
-<div class="flex flex-col ">
+<div class="flex flex-col">
     {#each ipArr as ip}
         <ServerLoader serverDomain={ip} />
     {/each}
