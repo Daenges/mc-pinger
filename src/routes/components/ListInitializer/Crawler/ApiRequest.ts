@@ -1,3 +1,5 @@
+import { ResultLog } from "../Storages";
+
 export class ApiResult {
     public ip : string = "";
     public port : string;
@@ -25,6 +27,9 @@ export class ApiResult {
         // Sanitize image request
         if(!this.iconBase64 || !this.iconBase64.startsWith('data:image/png;base64')) {this.iconBase64 = "./pack.webp"}
         this.software ??= "Unknown";
+
+        // Add request result to the cache storage
+        ResultLog.update(n => { if(!n[this.ip]) {n[this.ip] = this;} return n; });
     }
 }
 
