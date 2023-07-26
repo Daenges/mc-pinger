@@ -3,5 +3,5 @@
 @tailwind utilities;
 @font-face {
     font-family: minecraft-regular;
-    src: url(/font/minecraft-regular.otf);
+    src: url({base}/font/minecraft-regular.otf);
 }
