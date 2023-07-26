@@ -23,9 +23,9 @@ export class ApiResult {
         this.playerCur ??= "0";
         this.playerMax ??= "0";
         this.motd ??= "No MOTD!";
-        this.iconBase64 ??= "./pack.webp";
+        this.iconBase64 ??= "/img/pack.webp";
         // Sanitize image request
-        if(!this.iconBase64 || !this.iconBase64.startsWith('data:image/png;base64')) {this.iconBase64 = "./pack.webp"}
+        if(!this.iconBase64 || !this.iconBase64.startsWith('data:image/png;base64')) {this.iconBase64 = "/img/pack.webp"}
         this.software ??= "Unknown";
 
         // Add request result to the cache storage
