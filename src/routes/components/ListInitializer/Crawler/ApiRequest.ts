@@ -1,4 +1,5 @@
 import { ResultLog } from "../Storages";
+import {base} from "$app/paths";
 
 export class ApiResult {
     public ip : string = "";
@@ -17,15 +18,15 @@ export class ApiResult {
         if(this.ip === "" || this.version === "") {
             throw Error(`Unable to create server: IP: ${init.ip} Version: ${init.version}`);
         }
-        
+
         this.port ??= "25565";
         this.domain ??= "";
         this.playerCur ??= "0";
         this.playerMax ??= "0";
         this.motd ??= "No MOTD!";
-        this.iconBase64 ??= "{base}/img/pack.webp";
+        this.iconBase64 ??= `${base}/img/pack.webp`;
         // Sanitize image request
-        if(!this.iconBase64 || !this.iconBase64.startsWith('data:image/png;base64')) {this.iconBase64 = "{base}/img/pack.webp"}
+        if(!this.iconBase64 || !this.iconBase64.startsWith('data:image/png;base64')) {this.iconBase64 = `${base}/img/pack.webp`}
         this.software ??= "Unknown";
 
         // Add request result to the cache storage
