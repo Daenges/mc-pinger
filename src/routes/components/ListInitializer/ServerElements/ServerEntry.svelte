@@ -15,11 +15,11 @@
 </script>
 
 <div class="md:flex bg-gray-300 sm:rounded-xl items-center min-w-fit w-full mb-6 border-2 border-slate-400">
-    <table class="w-full">
+    <table class="w-full h-full">
         <tr>
             <td class="w-1/6"><ServerImage {pictureBase64} /></td>
             <td class="w-5/6">
-                <table class="w-full">
+                <table class="w-full h-full">
                     <tr>
                         <td><ServerProperty content={servInfo1}/></td>
                         <td><ServerProperty content={servInfo3}/></td>

@@ -63,7 +63,7 @@
     onMount(() => loadMoreServers(false));
 </script>
 
-<div class="container max-w-2xl lg:w-1/3 mx-auto z-10">
+<div class="container max-w-fit md:max-w-3xl 2xl:max-w-5xl mx-auto z-10">
     <!-- Control Bar -->
     <div class="flex flex-row w-full h-12 md:h-16 bg-black rounded-lg mb-6 items-center overflow-x-hidden sm:text-xs md:text-lg" style="font-family: minecraft-regular;">
         <button on:click={() => {StartSearch.set(false)}} class="text-white h-full bg-rose-600 w-1/4 md:w-1/5 text-center">Back</button>
