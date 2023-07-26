@@ -29,7 +29,7 @@ export class ApiResult {
         this.software ??= "Unknown";
 
         // Add request result to the cache storage
-        ResultLog.update(n => { if(!n[this.ip]) {n[this.ip] = this;} return n; });
+        ResultLog.update(n => { if(!(this.ip in n)) {n.set(this.ip, this);} return n; });
     }
 }
 

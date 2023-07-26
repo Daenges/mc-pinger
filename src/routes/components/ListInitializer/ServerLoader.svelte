@@ -12,7 +12,7 @@
     export let serverDomain : string = "mc.hypixel.net";
     let prom : Promise<ApiResult>;
     
-    let cache : {[key: string] : ApiResult};
+    let cache : Map<string, ApiResult>;
     ResultLog.subscribe(n => (cache = n));
 
     let apis = [fetch_MCAPINET, fetch_MCAPIUS, fetch_MCSRVSTATUS, fetch_MCSTATUSIO]
@@ -23,7 +23,7 @@
 
     // Do request or load data from cache if present on load
     onMount(async function () {
-        prom = serverDomain in cache ? Promise.resolve(cache[serverDomain]!) : apis[getRandomInt(apis.length)]!(serverDomain);
+        prom = cache.has(serverDomain) ? Promise.resolve(cache.get(serverDomain)!) : apis[getRandomInt(apis.length)]!(serverDomain);
     });
 </script>
 
