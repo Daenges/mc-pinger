@@ -28,8 +28,8 @@
                         <td><ServerProperty content={servInfo2}/></td>
                         <td><ServerProperty content={servInfo4}/></td>
                     </tr>
-                    <tr>
-                        <td colspan="2"><ServerProperty content={motd}/></td>
+                    <tr class="h-full">
+                        <td colspan="2" class="h-full"><ServerProperty content={motd}/></td>
                     </tr>      
                 </table>
             </td>
