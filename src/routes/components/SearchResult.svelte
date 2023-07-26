@@ -6,6 +6,7 @@
     import { ResultLog, StartSearch } from "./ListInitializer/Storages";
     import LoadingServerPlaceholder from "./ListInitializer/ServerElements/LoadingServerPlaceholder.svelte";
     import { onMount } from "svelte";
+    import CsvDownloader from "./CsvDownloader.svelte";
 
     export let startIP : string = "127.0.0.1"
     export let scanAmount : number = 1;
@@ -63,7 +64,7 @@
     onMount(() => loadMoreServers(false));
 </script>
 
-<div class="container max-w-fit md:max-w-3xl 2xl:max-w-5xl mx-auto z-10">
+<div class="container min-w-xl md:max-w-3xl 2xl:max-w-5xl mx-auto z-10">
     <!-- Control Bar -->
     <div class="flex flex-row w-full h-12 md:h-16 bg-black rounded-lg mb-6 items-center overflow-x-hidden sm:text-xs md:text-lg" style="font-family: minecraft-regular;">
         <button on:click={() => {StartSearch.set(false)}} class="text-white h-full bg-rose-600 w-1/4 md:w-1/5 text-center">Back</button>
@@ -86,8 +87,9 @@
         <!-- Trigger Buttons further loading -->
         <table class="w-full h-1/5 text-center text-lg mb-6" style="font-family: minecraft-regular;">
             <tr class="h-full">
-                <td class="w-1/2 h-full"><button on:click={() => autoLoad=true}           class="bg-gray-300 w-5/6 h-full rounded-xl border-slate-400 border-2">Enable Autoload</button></td>
-                <td class="w-1/2 h-full"><button on:click={() => loadMoreServers(false)}  class="bg-gray-300 w-5/6 h-full rounded-xl border-slate-400 border-2">Load {scanAmount} new Servers</button></td>
+                <td class="w-2/5 h-full"><button on:click={() => autoLoad=true}           class="bg-gray-300 w-5/6 h-full rounded-xl border-slate-400 border-2">Enable Autoload</button></td>
+                <td class="w-1/5 h-full"><CsvDownloader /></td>
+                <td class="w-2/5 h-full"><button on:click={() => loadMoreServers(false)}  class="bg-gray-300 w-5/6 h-full rounded-xl border-slate-400 border-2">Load {scanAmount} new Servers</button></td>
             </tr>
         </table>
     {:else}
